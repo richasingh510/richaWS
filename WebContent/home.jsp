@@ -8,52 +8,16 @@
 <title>Home</title>
 </head>
 <body>
-<%
-Connection con= null;
-PreparedStatement ps = null;
-ResultSet rs = null;
-
-String driverName = "com.mysql.jdbc.Driver";
-String url = "jdbc:mysql://localhost:3306/logindb";
-String user = "root";
-String password = "personal";
-
-String sql = "select usertype from userdetail";
-
-try {
-	Class.forName(driverName);
-	con = DriverManager.getConnection(url, user, password);
-	ps = con.prepareStatement(sql);
-	rs = ps.executeQuery();	
-%>
 <form method="post" action="login.jsp">
 <center><h2 style="color:green">JSP Login Example</h2></center>
 <table border="1" align="center">
 <tr>
-<td>Enter Your Name :</td>
+<td>username/email:</td>
 <td><input type="text" name="name"/></td>
 </tr>
 <tr>
-<td>Enter Your Password :</td>
+<td>password :</td>
 <td><input type="password" name="password"/></td>
-</tr>
-
-<%
-while(rs.next())
-{
-	String usertype = rs.getString("usertype");
-%>
-<option value=<%=usertype%>><%=usertype%></option>
-<%		
-	}
-}
-catch(SQLException sqe)
-{
-	out.println("home"+sqe);
-}
-%>
-</select>
-</td>
 </tr>
 <tr>
 <td></td>
