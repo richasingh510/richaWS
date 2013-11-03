@@ -14,9 +14,9 @@ PreparedStatement ps = null;
 ResultSet rs = null;
 
 String driverName = "com.mysql.jdbc.Driver";
-String url = "jdbc:mysql://localhost:3306/record";
+String url = "jdbc:mysql://localhost:3306/logindb";
 String user = "root";
-String password = "root";
+String password = "personal";
 
 String sql = "select usertype from userdetail";
 
@@ -37,10 +37,7 @@ try {
 <td>Enter Your Password :</td>
 <td><input type="password" name="password"/></td>
 </tr>
-<tr>
-<td>Select UserType</td>
-<td><select name="usertype">
-<option value="select">select</option>
+
 <%
 while(rs.next())
 {
