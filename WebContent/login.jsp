@@ -21,7 +21,7 @@ String url = "jdbc:mysql://localhost:3306/logindb";
 String user = "root";
 String dbpsw = "personal";
 
-String sql = "select name,password from userdetail where name=? and password=?";
+String sql = "select UserName,password from userprofile where UserName=? and password=?";
 
 String name = request.getParameter("name");
 String password = request.getParameter("password");
@@ -37,7 +37,7 @@ if((!(name.equals(null) || name.equals("")) && !(password.equals(null) || passwo
 		rs = ps.executeQuery();
 		if(rs.next())
 		{			
-			username = rs.getString("name");
+			username = rs.getString("UserName");
 			userpwd = rs.getString("password");
 			if(name.equals(username) && password.equals(userpwd))
 				{

@@ -24,7 +24,7 @@ String url = "jdbc:mysql://localhost:3306/logindb";
 String user = "root";
 String dbpsw = "personal";
 
-String sql = "insert into userprofile values (?,?,?,?)";
+String sql = "insert into userprofile (FirstName,LastName,UserName,password) values (?,?,?,?)";
 String firstname= request.getParameter("firstname");
 String lastname= request.getParameter("lastname");
 String name = request.getParameter("name");
@@ -42,26 +42,13 @@ if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null)
 		ps.setString(3, name);
 		ps.setString(4, password);
 		
-		rs = ps.executeQuery();
-		if(rs.next())
-		{	
-			userfName=rs.getString("firstname");
-			userlName=rs.getString("lastname");
-			userdbName = rs.getString("name");
-			userdbPsw = rs.getString("password");
-			
-			if(firstname.equals(userfName) && lastname.equals(userlName) && name.equals(userdbName) && password.equals(userdbPsw))
-				{
-				    session.setAttribute("firstname",userfName);
-				    session.setAttribute("lastname",userlName);
-					session.setAttribute("name",userdbName);
-										
-					response.sendRedirect("home.jsp");				
-				}						   
-		}
+		int success = ps.executeUpdate();
+		
+		if(success == 1)
+			response.sendRedirect("home.jsp");	
 		else
 			response.sendRedirect("error.jsp");
-		rs.close();
+		
 		ps.close();				
 		}
 	catch(SQLException sqe)
