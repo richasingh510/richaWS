@@ -8,8 +8,8 @@
 <title>Login</title>
 </head>
 <body>
-<%! String username;
-String userpwd;
+<%! String email;
+String pwd;
 %>
 <%
 Connection con= null;
@@ -17,13 +17,13 @@ PreparedStatement ps = null;
 ResultSet rs = null;
 
 String driverName = "com.mysql.jdbc.Driver";
-String url = "jdbc:mysql://localhost:3306/logindb";
+String url = "jdbc:mysql://localhost:3306/marketplace";
 String user = "root";
 String dbpsw = "personal";
 
-String sql = "select UserName,password from userprofile where UserName=? and password=?";
+String sql = "select email,password from userprofile where email=? and password=?";
 
-String name = request.getParameter("name");
+String name = request.getParameter("email");
 String password = request.getParameter("password");
 
 if((!(name.equals(null) || name.equals("")) && !(password.equals(null) || password.equals(""))))
@@ -37,11 +37,11 @@ if((!(name.equals(null) || name.equals("")) && !(password.equals(null) || passwo
 		rs = ps.executeQuery();
 		if(rs.next())
 		{			
-			username = rs.getString("UserName");
-			userpwd = rs.getString("password");
-			if(name.equals(username) && password.equals(userpwd))
+			email = rs.getString("email");
+			pwd = rs.getString("password");
+			if(name.equals(email) && password.equals(pwd))
 				{
-					session.setAttribute("name",username);				
+					session.setAttribute("email",email);				
 					response.sendRedirect("welcome.jsp");				
 				}						   
 		}

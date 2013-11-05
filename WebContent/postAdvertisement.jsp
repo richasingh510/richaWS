@@ -8,7 +8,7 @@
 <title>Home</title>
 </head>
 <body>
-<form method="post" action="saveItemList.jsp">
+<form method="post" action="saveItemlist.jsp">
 <center><h2 style="color:green">User Sign Up</h2></center>
 <table border="1" align="center">
 <tr>
@@ -25,7 +25,7 @@
 </tr>
 <tr>
 <td>Enter Quantity :</td>
-<td><input type="password" name="itemquantity"/></td>
+<td><input type="text" name="itemquantity"/></td>
 </tr>
 <tr>
 <td></td>

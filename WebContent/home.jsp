@@ -12,8 +12,8 @@
 <center><h2 style="color:green">JSP Login Example</h2></center>
 <table border="1" align="center">
 <tr>
-<td>username/email:</td>
-<td><input type="text" name="name"/></td>
+<td>username/email :</td>
+<td><input type="text" name="email"/></td>
 </tr>
 <tr>
 <td>password :</td>

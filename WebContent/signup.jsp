@@ -20,8 +20,8 @@
 <td><input type="text" name="lastname"/></td>
 </tr>
 <tr>
-<td>Enter Your Username :</td>
-<td><input type="text" name="name"/></td>
+<td>Enter Your email :</td>
+<td><input type="text" name="email"/></td>
 </tr>
 <tr>
 <td>Enter Your Password :</td>

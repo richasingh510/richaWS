@@ -20,18 +20,18 @@ PreparedStatement ps = null;
 ResultSet rs = null;
 
 String driverName = "com.mysql.jdbc.Driver";
-String url = "jdbc:mysql://localhost:3306/logindb";
+String url = "jdbc:mysql://localhost:3306/marketplace";
 String user = "root";
 String dbpsw = "personal";
 
-String sql = "insert into userprofile (FirstName,LastName,UserName,password) values (?,?,?,?)";
+String sql = "insert into userprofile (firstname,lastname,email,password) values (?,?,?,?)";
 String firstname= request.getParameter("firstname");
 String lastname= request.getParameter("lastname");
-String name = request.getParameter("name");
+String email = request.getParameter("email");
 String password = request.getParameter("password");
 
 
-if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null) || lastname.equals("")) && !(name.equals(null) || name.equals("")) && !(password.equals(null) || password.equals("")))) 
+if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null) || lastname.equals("")) && !(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals("")))) 
 {
 	try{
 		Class.forName(driverName);
@@ -39,7 +39,7 @@ if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null)
 		ps = con.prepareStatement(sql);
 		ps.setString(1, firstname);
 		ps.setString(2, lastname);
-		ps.setString(3, name);
+		ps.setString(3, email);
 		ps.setString(4, password);
 		
 		int success = ps.executeUpdate();
@@ -60,7 +60,7 @@ else
 {
 	%>
 	
-		<center><p style="color:red">Error In Login</p></center>
+		<center><p style="color:red">Error In Signup</p></center>
 		<% 
 	getServletContext().getRequestDispatcher("/home.jsp").include(request, response);
 }
