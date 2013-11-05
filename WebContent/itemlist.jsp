@@ -29,10 +29,8 @@ String sql = "select name,password from userdetail where name=? and password=?";
 String name = request.getParameter("itemname");
 String description = request.getParameter("itemdescription");
 String info = request.getParameter("sellerinfo");
-Integer price = request.getParameter("itemprice");
-Integer itemquantity = request.getParameter("itemquantity");
-
-
+int price = Integer.parseInt(request.getParameter("itemprice"));
+int itemquantity = Integer.parseInt(request.getParameter("itemquantity"));
 
 
 if((!(name.equals(null) || name.equals("")) && !(description.equals(null) || description.equals("")) && !(info.equals(null) || info.equals("")) && !(price.equals(null)) && !(itemquantity.equals(null))))
@@ -59,8 +57,8 @@ if((!(name.equals(null) || name.equals("")) && !(description.equals(null) || des
 					session.setAttribute("itemname",itemname);	
 					session.setAttribute("itemdescription",itemdes);
 					session.setAttribute("sellerinfo",sellerinfo);	
-					//session.setAttribute("itemprice",itemprice);
-					//session.setAttribute("itemquantity",quantity);	
+					session.setAttribute("itemprice",itemprice);
+					session.setAttribute("itemquantity",quantity);	
 					//response.sendRedirect("welcome.jsp");				
 				}						   
 		}
