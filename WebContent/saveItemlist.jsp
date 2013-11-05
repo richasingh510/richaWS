@@ -8,12 +8,6 @@
 <title>Enter Item details</title>
 </head>
 <body>
-<%! String itemname;
-String itemdes;
-String sellerinfo;
-Integer itemprice;
-Integer quantity;
-%>
 <%
 Connection con= null;
 PreparedStatement ps = null;
@@ -28,7 +22,6 @@ String sql = "select name,password from userdetail where name=? and password=?";
 
 String name = request.getParameter("itemname");
 String description = request.getParameter("itemdescription");
-String info = request.getParameter("sellerinfo");
 int price = Integer.parseInt(request.getParameter("itemprice"));
 int itemquantity = Integer.parseInt(request.getParameter("itemquantity"));
 
