@@ -25,27 +25,13 @@ CREATE TABLE `advertisements` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
-DROP TABLE IF EXISTS `shoppingcart`;
-CREATE TABLE `shoppingcart` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `buyer` varchar(20) NOT NULL,
-  `itemname` varchar(100) NOT NULL,
-  `itemprice` int(11) NOT NULL,
-  `itemquantity` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
-
-DROP TABLE IF EXISTS `checkout`;
+DROP TABLE IF EXISTS `useraccount`;
 CREATE TABLE  `checkout` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(10) NOT NULL,
-  `lastname` varchar(10) NOT NULL,
-  `email` varchar(15) NOT NULL,
-  `country` varchar(10) NOT NULL,
-  `phone` int(10)NOT NULL,
-  `ccno` int(20) NOT NULL,
-  `CCExpiresMonth` varchar(10) NOT NULL,
-  `CCExpiresYear` int(10) NOT NULL,
+  `itemname` varchar(50) NOT NULL,
+  `itemprice` int(10)NOT NULL,
+  `itemquantity` int(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `accounttype` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
