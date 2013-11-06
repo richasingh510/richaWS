@@ -6,12 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
 public class Login {
 
 	public Login() {}
 	
 	String email, pwd;
 
+	@WebMethod (action="verifyCredentials")
 	public boolean verifyCredentials(String name, String password) {
 
 		boolean isValid = true;
