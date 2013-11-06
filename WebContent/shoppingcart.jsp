@@ -11,10 +11,9 @@
 
 
 <p>Welcome, <%=session.getAttribute("email")%></p>
-<p><a href="postAdvertisement.jsp">Post Advertisement</a>
 <p><a href="logout.jsp">Logout</a>
 
-<%! String itemname, itemdescription, seller;
+<%! String itemname, buyer;
 double itemprice;
 int itemquantity;
 %>
@@ -28,47 +27,40 @@ String url = "jdbc:mysql://localhost:3306/marketplace";
 String username = "root";
 String dbpassword = "personal";
 
-String sql = "select * from advertisements";
+String sql = "select * from shoppingcart where buyer=?";
+
+String buyer = session.getAttribute("email").toString();
 
 	try{
 		Class.forName(driverName);
 		con = DriverManager.getConnection(url, username, dbpassword);
 		ps = con.prepareStatement(sql);
+		ps.setString(1, buyer);
 		rs = ps.executeQuery();
 		%>
 		<table border="1">
 		<tr>
 		<td> Item Name </td>
-		<td> Item Description </td>
 		<td> Item Price </td>
 		<td> Item Quantity </td>
-		<td> Seller </td>
 		<td> </td>
 		</tr>
 		<%
 		while(rs.next())
 		{			
 			itemname = rs.getString("itemname");
-			itemdescription = rs.getString("itemdescription");
 			itemprice = rs.getDouble("itemprice");
 			itemquantity = rs.getInt("itemquantity");
-			seller = rs.getString("seller");
 			
 			%>
-	
+
 	<tr>
-	<form method="get" action="addtocart.jsp">
+	<form method="post" action="checkout.jsp">
 		<td><%=itemname%></td>
-		<td><%=itemdescription%></td>
 		<td><%=itemprice%></td>
 		<td><%=itemquantity%></td>
-		<td><%=seller%></td>
-		 <input type="hidden" name="itemname" value=<%=itemname%>>
-		 <input type="hidden" name="itemprice" value=<%=itemprice%>>
-		 <input type="hidden" name="itemquantity" value=<%=itemquantity%>>
-		
-		<td><input type="submit" value="AddToCart"/></td>
-	</form>
+		<td><input type="submit" value="CheckOut"/></td>
+	</form>	
 	</tr>
 
 

@@ -8,10 +8,9 @@
 <title>Login</title>
 </head>
 <body>
-<%! String userfName;
-String userlName;
-String userdbName;
-String userdbPsw;
+<%! String itemName, buyername;
+double itemPrice;
+int quantity;
 
 %>
 <%
@@ -24,28 +23,30 @@ String url = "jdbc:mysql://localhost:3306/marketplace";
 String username = "root";
 String dbpassword = "personal";
 
-String sql = "insert into userprofile (firstname,lastname,email,password) values (?,?,?,?)";
-String firstname= request.getParameter("firstname");
-String lastname= request.getParameter("lastname");
-String email = request.getParameter("email");
-String password = request.getParameter("password");
+String sql = "insert into shoppingcart (buyer,itemname,itemprice,itemquantity) values (?,?,?,?)";
+String itemname= request.getParameter("itemname");
+double itemprice = Double.parseDouble(request.getParameter("itemprice"));
+int itemquantity = Integer.parseInt(request.getParameter("itemquantity"));;
+String buyer = session.getAttribute("email").toString();
 
 
-if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null) || lastname.equals("")) && !(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals("")))) 
+if(( !(buyer.equals(null) || buyer.equals("")) && !(itemname.equals(null) || itemname.equals(""))))
 {
+	
 	try{
 		Class.forName(driverName);
 		con = DriverManager.getConnection(url, username, dbpassword);
 		ps = con.prepareStatement(sql);
-		ps.setString(1, firstname);
-		ps.setString(2, lastname);
-		ps.setString(3, email);
-		ps.setString(4, password);
+		ps.setString(1, buyer);
+		ps.setString(2, itemname);
+		ps.setDouble(3, itemprice);
+		ps.setInt(4, itemquantity);
+	
 		
 		int success = ps.executeUpdate();
 		
 		if(success == 1)
-			response.sendRedirect("home.jsp");	
+			response.sendRedirect("shoppingcart.jsp");	
 		else
 			response.sendRedirect("error.jsp");
 		

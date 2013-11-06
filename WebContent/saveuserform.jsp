@@ -24,14 +24,18 @@ String url = "jdbc:mysql://localhost:3306/marketplace";
 String username = "root";
 String dbpassword = "personal";
 
-String sql = "insert into userprofile (firstname,lastname,email,password) values (?,?,?,?)";
+String sql = "insert into checkout (firstname,lastname,email,country,phone,ccno,CCExpiresMonth,CCExpiresYear) values (?,?,?,?,?,?,?,?)";
 String firstname= request.getParameter("firstname");
 String lastname= request.getParameter("lastname");
 String email = request.getParameter("email");
-String password = request.getParameter("password");
+String country = request.getParameter("country");
+int phone= Integer.parseInt(request.getParameter("phone"));
+int ccno= Integer.parseInt(request.getParameter("ccno"));
+int CCExpiresMonth= Integer.parseInt(request.getParameter("CCExpiresMonth"));
+int CCExpiresYear= Integer.parseInt(request.getParameter("CCExpiresYear"));
 
 
-if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null) || lastname.equals("")) && !(email.equals(null) || email.equals("")) && !(password.equals(null) || password.equals("")))) 
+if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null) || lastname.equals("")) && !(email.equals(null) || email.equals("")) && !(country.equals(null) || country.equals("")))) 
 {
 	try{
 		Class.forName(driverName);
@@ -40,12 +44,16 @@ if((!(firstname.equals(null) || firstname.equals("")) && !(lastname.equals(null)
 		ps.setString(1, firstname);
 		ps.setString(2, lastname);
 		ps.setString(3, email);
-		ps.setString(4, password);
+		ps.setString(4, country);
+		ps.setInt(5,phone);
+		ps.setInt(6,ccno);
+		ps.setInt(7,CCExpiresMonth);
+		ps.setInt(8,CCExpiresYear);
 		
 		int success = ps.executeUpdate();
 		
 		if(success == 1)
-			response.sendRedirect("home.jsp");	
+			response.sendRedirect("paymentconfirm.jsp");	
 		else
 			response.sendRedirect("error.jsp");
 		

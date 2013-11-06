@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Example</title>
+<title>Simple Market Place</title>
 </head>
 <body>
-<a href="home.jsp">Click here to test.</a>
+<a href="home.jsp">Click here to login.</a>
 </body>
 </html>

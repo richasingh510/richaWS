@@ -18,8 +18,8 @@ ResultSet rs = null;
 
 String driverName = "com.mysql.jdbc.Driver";
 String url = "jdbc:mysql://localhost:3306/marketplace";
-String user = "root";
-String dbpsw = "personal";
+String username = "root";
+String dbpassword = "personal";
 
 String sql = "select email,password from userprofile where email=? and password=?";
 
@@ -30,7 +30,7 @@ if((!(name.equals(null) || name.equals("")) && !(password.equals(null) || passwo
 {
 	try{
 		Class.forName(driverName);
-		con = DriverManager.getConnection(url, user, dbpsw);
+		con = DriverManager.getConnection(url, username, dbpassword);
 		ps = con.prepareStatement(sql);
 		ps.setString(1, name);
 		ps.setString(2, password);

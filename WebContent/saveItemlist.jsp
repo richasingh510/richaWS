@@ -15,8 +15,8 @@ ResultSet rs = null;
 
 String driverName = "com.mysql.jdbc.Driver";
 String url = "jdbc:mysql://localhost:3306/marketplace";
-String user = "root";
-String dbpasswd = "personal";
+String username = "root";
+String dbpassword = "personal";
 
 String sql = "insert into advertisements (itemname,itemdescription,itemprice,itemquantity,seller,isSold) values (?,?,?,?,?,?)";
 
@@ -31,7 +31,7 @@ if((!(name.equals(null) || name.equals("")) && !(description.equals(null) || des
 {
 	try{
 		Class.forName(driverName);
-		con = DriverManager.getConnection(url, user, dbpasswd);
+		con = DriverManager.getConnection(url, username, dbpassword);
 		ps = con.prepareStatement(sql);
 		ps.setString(1, name);
 		ps.setString(2, description);

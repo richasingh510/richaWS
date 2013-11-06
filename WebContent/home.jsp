@@ -9,7 +9,7 @@
 </head>
 <body>
 <form method="post" action="login.jsp">
-<center><h2 style="color:green">JSP Login Example</h2></center>
+<center><h2 style="color:green">User Login</h2></center>
 <table border="1" align="center">
 <tr>
 <td>username/email :</td>
