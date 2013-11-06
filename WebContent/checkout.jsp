@@ -8,7 +8,7 @@
 <title>Home</title>
 </head>
 <body>
-<form method="post" action="saveuserform.jsp">
+<form method="post" action="processpayment.jsp">
 <center><h2 style="color:green">User Payment Details</h2></center>
 <table border="1" align="center">
 <tr>
@@ -38,35 +38,29 @@
 <tr>
 <td>Select Expiry Date</td>
 <td><select name="CCExpiresMonth">
-<option value="select">--Month--
-<option value="01">January
-<option value="02">Feburary
-<option value="03">March
-<option value="04">April
-<option value="05">May
-<option value="06">June
-<option value="07">July
-<option value="08">August
-<option value="09">September
-<option value="10">October
-<option value="11">November
-</option>
+<option value="select">--Month--</option>
+<option value="01">January</option>
+<option value="02">Feburary</option>
+<option value="03">March</option>
+<option value="04">April</option>
+<option value="05">May</option>
+<option value="06">June</option>
+<option value="07">July</option>
+<option value="08">August</option>
+<option value="09">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
 </select>
 <select name="CCExpiresYear">
-<option value="select">--Year--
-<option value="04">2004
-<option value="05">2005
-<option value="06">2006
-<option value="07">2007
-<option value="08">2008
-<option value="09">2009
-<option value="10">2010
-<option value="11">2011
-<option value="12">2012
-<option value="13">2013
-<option value="14">2014
-<option value="15">2015
-</option>
+<option value="select">--Year--</option>
+<option value="04">2014</option>
+<option value="05">2015</option>
+<option value="06">2016</option>
+<option value="07">2017</option>
+<option value="08">2018</option>
+<option value="09">2019</option>
+<option value="10">2020</option>
 </select>
 </td>
 </tr>

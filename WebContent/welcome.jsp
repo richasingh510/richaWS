@@ -57,7 +57,7 @@ String sql = "select * from advertisements";
 			%>
 	
 	<tr>
-	<form method="get" action="addtocart.jsp">
+	<form method="post" action="shoppingcart.jsp">
 		<td><%=itemname%></td>
 		<td><%=itemdescription%></td>
 		<td><%=itemprice%></td>
@@ -66,6 +66,7 @@ String sql = "select * from advertisements";
 		 <input type="hidden" name="itemname" value=<%=itemname%>>
 		 <input type="hidden" name="itemprice" value=<%=itemprice%>>
 		 <input type="hidden" name="itemquantity" value=<%=itemquantity%>>
+		 <input type="hidden" name="seller" value=<%=seller%>>
 		
 		<td><input type="submit" value="AddToCart"/></td>
 	</form>

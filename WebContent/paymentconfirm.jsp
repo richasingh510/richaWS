@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<p>Payment Successfull</p>
+<p>Payment Successful</p>
 
 <%! String itemname, buyer;
 double itemprice;
