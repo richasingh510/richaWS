@@ -11,12 +11,12 @@ import javax.jws.WebService;
 
 @WebService
 public class PostAdvertisement {
-	
+
 	public PostAdvertisement() {}
-	
+
 	@WebMethod(action="saveAdvertisement")
 	public void saveAdvertisement(String name, String description, double price, int quantity, String seller) {
-		
+
 		Connection con= null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -45,15 +45,15 @@ public class PostAdvertisement {
 				ps.setString(5, seller);
 				ps.setInt(6, 0);
 				ps.executeUpdate();
-				
+
 				ps.close();				
-				}
+			}
 			catch(SQLException sqe)
 			{
 				sqe.printStackTrace();
 			}	
 		}
-		
+
 	}	
 
 }
