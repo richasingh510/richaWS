@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
+<title>Post advertisement</title>
 </head>
 <body>
 <form method="post" action="saveItemlist.jsp">
-<center><h2 style="color:green">User Sign Up</h2></center>
+<center><h2 style="color:green">Item Details</h2></center>
 <table border="1" align="center">
 <tr>
 <td>Enter Item Name :</td>

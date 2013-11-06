@@ -8,6 +8,6 @@
 </head>
 <body>
 <% session.invalidate(); %>
-<p>You have been successfully logout</p>
+<p>Logout Successfully</p>
 </body>
 </html>
