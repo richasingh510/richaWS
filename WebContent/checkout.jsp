@@ -69,5 +69,6 @@
 <td><input type="submit" value="Confirm Pay &gt;&gt;"/></td>
 </table>
 </form>
+
 </body>
 </html>

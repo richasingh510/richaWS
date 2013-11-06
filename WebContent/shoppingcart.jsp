@@ -16,10 +16,6 @@
 	<p>
 		<a href="logout.jsp">Logout</a>
 
-		<%! String itemname, buyer;
-double itemprice;
-int itemquantity;
-%>
 		<%
 
 String itemname= request.getParameter("itemname");
@@ -27,6 +23,11 @@ double itemprice = Double.parseDouble(request.getParameter("itemprice"));
 int itemquantity = Integer.parseInt(request.getParameter("itemquantity"));
 String seller = request.getParameter("seller");
 String buyer = session.getAttribute("email").toString();
+session.setAttribute("seller", seller);
+session.setAttribute("itemname", itemname);
+session.setAttribute("itemprice", itemprice);
+session.setAttribute("itemquantity", itemquantity);
+
 
 		%>
 	
@@ -43,11 +44,6 @@ String buyer = session.getAttribute("email").toString();
 				<td><%=itemname%></td>
 				<td><%=itemprice%></td>
 				<td><%=itemquantity%></td>
-				<% session.setAttribute("seller", seller);
-				session.setAttribute("itemname", itemname);
-				session.setAttribute("itemprice", itemprice);
-				session.setAttribute("itemquantity", itemquantity);
-				%>
 				<td><input type="submit" value="CheckOut" /></td>
 			</form>
 		</tr>

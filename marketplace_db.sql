@@ -26,12 +26,12 @@ CREATE TABLE `advertisements` (
 
 
 DROP TABLE IF EXISTS `useraccount`;
-CREATE TABLE  `checkout` (
+CREATE TABLE  `useraccount` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `itemname` varchar(50) NOT NULL,
   `itemprice` int(10)NOT NULL,
   `itemquantity` int(20) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `accounttype` int(10) NOT NULL,
+  `accounttype` varchar(10) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

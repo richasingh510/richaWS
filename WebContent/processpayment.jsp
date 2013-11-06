@@ -35,6 +35,8 @@ if(errorMessage != null)
 	getServletContext().getRequestDispatcher("/checkout.jsp").include(request, response);
 }
 
+response.sendRedirect("paymentconfirm.jsp");	
+
 %>
 </body>
 </html>
