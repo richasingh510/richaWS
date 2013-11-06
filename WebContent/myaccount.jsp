@@ -30,7 +30,7 @@
 			String username = "root";
 			String dbpassword = "personal";
 
-			String sql = "select * from useraccount where accounttype='seller'";
+			String sql = "select * from useraccount where email=? AND accounttype='seller'";
 
 			try {
 				Class.forName(driverName);
@@ -40,10 +40,12 @@
 				rs = ps.executeQuery();
 		%>
 	
+	<br/>
+	<br/>
+	
 	<table border="1">
 		<tr>
 			<td>Item Name</td>
-			<td>Item Description</td>
 			<td>SELL Price</td>
 			<td>Quantity SOLD</td>
 			<td></td>
@@ -51,14 +53,12 @@
 		<%
 			while (rs.next()) {
 					itemname = rs.getString("itemname");
-					itemdescription = rs.getString("itemdescription");
 					itemprice = rs.getDouble("itemprice");
 					itemquantity = rs.getInt("itemquantity");
 		%>
 
 		<tr>
 			<td><%=itemname%></td>
-			<td><%=itemdescription%></td>
 			<td><%=itemprice%></td>
 			<td><%=itemquantity%></td>
 		</tr>
@@ -91,7 +91,6 @@
 	<table border="1">
 		<tr>
 			<td>Item Name</td>
-			<td>Item Description</td>
 			<td>BUY Price</td>
 			<td>Quantity BOUGHT</td>
 			<td></td>
@@ -99,14 +98,12 @@
 		<%
 			while (rs.next()) {
 					itemname = rs.getString("itemname");
-					itemdescription = rs.getString("itemdescription");
 					itemprice = rs.getDouble("itemprice");
 					itemquantity = rs.getInt("itemquantity");
 		%>
 
 		<tr>
 			<td><%=itemname%></td>
-			<td><%=itemdescription%></td>
 			<td><%=itemprice%></td>
 			<td><%=itemquantity%></td>
 		</tr>

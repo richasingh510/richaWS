@@ -59,6 +59,8 @@ String seller = session.getAttribute("seller").toString();
 		out.println(sqe);
 	}
 	%>
+	
+	<a href="myaccount.jsp">My Account</a>
 
 	
 
